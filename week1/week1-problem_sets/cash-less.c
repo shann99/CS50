@@ -1,4 +1,4 @@
-#include </Users/shannonreid/Downloads/libcs50-11.0.1/build/include/cs50.h>
+#include <cs50.h>
 #include <stdio.h>
 
 int get_cents(void);
