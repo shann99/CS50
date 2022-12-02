@@ -34,6 +34,8 @@ int main (void){
 
 
 
+
+
 long checksum(long card) {
     char num_string[255];
     //converts card number to a string
@@ -90,6 +92,7 @@ long checksum(long card) {
     else {
         printf("INVALID!\n");
     }
+    // returning zero as there's no actual variable i want to have returned here
     return 0;
 }
 
@@ -108,6 +111,7 @@ long check_card_length(long card){
     else {
         printf("INVALID!\n");
     }
+    // returning zero as there's no actual variable i want to have returned here
     return 0;
 }
 long check_card_starting_digits (long card) {
@@ -132,6 +136,7 @@ long check_card_starting_digits (long card) {
     else {
         printf("INVALID!\n");
     }
+    // returning zero as there's no actual variable i want to have returned here
     return 0;
 }
    
