@@ -17,6 +17,28 @@ int main(void){
     int grade = get_grade(letters, words, sentences);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int count_letters(string text){
     int length = strlen(text);
     int letters = 0;
