@@ -13,6 +13,8 @@ int main(int argc, string argv[]) {
     string text;
     char chr;
     char encrypt;
+
+    // checks if there is an argument provided when calling program
     if (argc == 2) {
         key_check = argv[1];
         bool digit_check = only_digits(key_check);
@@ -20,6 +22,7 @@ int main(int argc, string argv[]) {
                key = atoi(key_check); 
                text = get_string("plaintext: ");
                printf("ciphertext: ");
+               //for the length of the plaintext, run the encryption on each character
                for (int i = 0, n = strlen(text); i < n; i++){
                     chr = text[i];
                     char encrypt = rotate(chr, key); 
@@ -49,7 +52,7 @@ int main(int argc, string argv[]) {
 
 
 
-
+//checks if the argument provided when calling the program is a number or not
 bool only_digits(string s){
     int n = strlen(s);
     for (int i = 0; i < n; i++) {
@@ -63,6 +66,9 @@ bool only_digits(string s){
     return true;
 }
 
+
+
+
 char rotate (char chr, int key){
     int new_indexU = 0;
     int new_indexL = 0;
@@ -73,7 +79,8 @@ char rotate (char chr, int key){
     char isUpper[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     char isLower[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't' , 'u', 'v', 'w', 'x', 'y', 'z'};
     
-    //checking if a letter in the string is uppercase
+    //checks if a letter in the string is uppercase and if is, checks the location in the isUpper array where the char matches
+    //gets the index of the matched char and then adds the key to it (now known as new index). if the new index is over 25, get the remainder and return the position
     if (isupper(chr)){
         for (int i = 0, xU = strlen(isUpper); i < xU; i++) {
             if (isUpper[i] == chr) {
@@ -83,8 +90,7 @@ char rotate (char chr, int key){
                     printf("%c", isUpper[new_indexU]);
                 }
                 else {
-                    int remainder = (indexU + key) % 26;
-                    int overflow_index = 0 + remainder;
+                    int overflow_index = (indexU + key) % 26;
                     printf("%c", isUpper[overflow_index]);
                 }
             }
@@ -102,8 +108,7 @@ char rotate (char chr, int key){
                     printf("%c", isLower[new_indexL]);
                 }
                 else {
-                    int remainder = (indexL + key) % 26;
-                    int overflow_index = 0 + remainder;
+                    int overflow_index = (indexL + key) % 26;
                     printf("%c", isLower[overflow_index]);
                 }
             }
