@@ -21,24 +21,6 @@ int main(void){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int count_letters(string text){
     int length = strlen(text);
     int letters = 0;

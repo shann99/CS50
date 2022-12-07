@@ -38,17 +38,6 @@ int main(void)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 int get_cents(void)
 {
     int cents;

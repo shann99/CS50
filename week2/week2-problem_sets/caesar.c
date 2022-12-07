@@ -19,15 +19,15 @@ int main(int argc, string argv[]) {
         key_check = argv[1];
         bool digit_check = only_digits(key_check);
             if (digit_check == true) {
-               key = atoi(key_check); 
-               text = get_string("plaintext: ");
-               printf("ciphertext: ");
-               //for the length of the plaintext, run the encryption on each character
-               for (int i = 0, n = strlen(text); i < n; i++){
+                key = atoi(key_check);
+                text = get_string("plaintext: ");
+                printf("ciphertext: ");
+                //for the length of the plaintext, run the encryption on each character
+                for (int i = 0, n = strlen(text); i < n; i++){
                     chr = text[i];
                     char encrypt = rotate(chr, key); 
-               }
-               printf("\n");
+                }
+                printf("\n");
             }
             else {
                printf("Usage: ./caesar key\n");
@@ -47,23 +47,28 @@ int main(int argc, string argv[]) {
 
 
 
-
-
-
-
-
 //checks if the argument provided when calling the program is a number or not
 bool only_digits(string s){
+    printf("s = %s\n", s);
     int n = strlen(s);
+    int k = 0;
+    printf("n = %i\n", n);
     for (int i = 0; i < n; i++) {
-        if (isdigit(s[i]) && s[i] >= 0 || s[i] <= 9) {
-            return true;  
+        if (isdigit(s[i])) {
+            //save the digit from s[i] if it is a number
+            k = s[i];
         }
+        // else it will return false;
         else {
             return false;
         }
+
     }
-    return true;
+    if(k >= 0 || k <= 9) {
+        printf("k = %c\n", k);
+        return true;
+    }
+    return false;
 }
 
 

@@ -1,0 +1,16 @@
+sort1 uses: bubble sort
+
+How do you know?: sort 1 consistently took the longest in the reversed and randomed 50,000 categories but was extremely quick on the sorted 50,000 category.
+this makes me believe that sort1 is bubble sort because with bubble sort, it does a complete pass through the array so it knew after the first pass that everything was already sorted.
+sort1 being bubble sort also explains the difference in times between the arrays that were not in order vs sorted order.
+
+sort2 uses: merge sort
+
+How do you know?: sort 2 uses merge sort because it had the fastest times in the all of the categories for me which lead me to believe that it was a merge sort because it is consistently fast due to its
+divide and conquer approach
+
+sort3 uses: selection sort
+
+How do you know?: sort 3 is selection sort because while it was faster than sort 1 in the revered and random 50,000 categories, it was still slower than sort 2. more specifically on the sorted 50,000 it
+took around 3 seconds for the program to complete and as we know with selection sort, it still needs to go through each element to see where the smallest number is before moving on and it will do that
+repeatedly (and which takes time) until its finished going through the whole array and doing its sorting.
