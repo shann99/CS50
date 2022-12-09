@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Points assigned to each letter of the alphabet
+int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
 
 int compute_score(string word);
 
@@ -17,37 +19,16 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
-    if (score1 > score2){
+    if (score1 > score2) {
         printf("Player 1 wins!\n");
     }
-    else if(score1 < score2){
+    else if(score1 < score2) {
         printf("Player 2 wins!\n");
     }
-    else{
+    else {
         printf("Tie!\n");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 int compute_score(string word)
@@ -55,41 +36,27 @@ int compute_score(string word)
     // TODO: Compute and return score for string
     int score = 0;
     int index = 0;
-    char upper; 
-    char same;
-    int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
-    char alpha[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'W', 'X', 'Y', 'Z'};
+    char letter;
 
-    for (int j = 0, x = strlen(word); j < x; j++) {
-        //loops the string for each player and checks if each character is alphabetical. if it isn't basically do nothing
-        if (isalpha(word[j])){
-                // checks if the word is lowercase, if it is, it makes it uppercase
-                if(islower(word[j])) {
-                upper = toupper(word[j]);
-                    // loops through the alpha array to see where the characters from upper matches and it it does, get the index of alpha 
-                    // then get the same index in points[] in order to return how much the letter is worth and add those points to score
-                    for(int i = 0, n = strlen(alpha); i < n; i++){
-                        if (alpha[i] == upper) {
-                            index = i;
-                            score += POINTS[index];
-                        }
-                    }
-                }
-                // checks if the word is upper , if it is, leave it alone and return the index where the character matches in alpha[] 
-                // then just get the point from the points[] index since the indexes of both arrays match up 
-                else if (isupper(word[j])){
-                    same = word[j];
-                    for(int i = 0, n = strlen(alpha); i < n; i++){
-                        if (alpha[i] == same) {
-                            index = i;
-                            score += POINTS[index];
-                    }
+    char alpha[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+    for (int i = 0, x = strlen(word); i < x; i++) {
+        //checks if letter is alphabetical
+        if(isalpha(word[i])) {
+            //converts every letter to uppercase
+            letter = toupper(word[i]);
+            //return the index where letter matches alpha[z]
+            //get that same index in POINTS and return the points and add them to the overall score
+            for(int z = 0, n = strlen(alpha); z < n; z++){
+                if (alpha[z] == letter) {
+                    index = z;
+                    score += POINTS[index];
+                    printf("alpha char %c\n", alpha[z]);
+                    printf("points %i\n", POINTS[index]);
                 }
             }
         }
-        else {
-            score += 0;
-        }
-    }   
+    }
+    printf("score %i\n", score);
     return score;
 }
