@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script src = "index.js"></script> 
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3> What is the national animal of Scotland? </h3>
+                <div>
+                    <h3 id = "incorrect1"> Incorrect! </h3>
+                    <h3 id = "incorrect2"> Incorrect! </h3>
+                    <h3 id = "correct"> Correct! </h3>
+                    <h3 id = "incorrect3"> Incorrect! </h3>
+                </div>
+                <button id="b2"> Scottish Wildcat </button>
+                <button id="b3"> Mountain Hare </button>
+                <button id="b1"> A unicorn </button>
+                <button id="b4"> Orkney Vole </button>
+                <script>
+                    b1.addEventListener("click", () => {
+                        b1.style.backgroundColor="#70db70";
+                        correct.style.display="inline-block";
+                        document.getElementById("b2").disabled=true;
+                        document.getElementById("b3").disabled=true;
+                        document.getElementById("b4").disabled=true;
+                    });
+                    b2.addEventListener("click", () => {
+                        b2.style.backgroundColor="#ff4d4d";
+                        incorrect1.style.display="inline-block";
+                        document.getElementById("b1").disabled=true;
+                        document.getElementById("b3").disabled=true;
+                        document.getElementById("b4").disabled=true;
+                    });
+                    b3.addEventListener("click", () => {
+                        b3.style.backgroundColor="#ff4d4d";
+                        incorrect2.style.display="inline-block";
+                        document.getElementById("b2").disabled=true;
+                        document.getElementById("b1").disabled=true;
+                        document.getElementById("b4").disabled=true;
+                        
+                        
+                    });
+                    b4.addEventListener("click", () => {
+                        b4.style.backgroundColor="#ff4d4d";
+                        incorrect3.style.display="inline-block";
+                        document.getElementById("b1").disabled=true;
+                        document.getElementById("b2").disabled=true;
+                        document.getElementById("b3").disabled=true;
+                    });
+                </script>
+                
+            </div>
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3> What year did the first playstation come out in Japan? </h3>
+                <h3 id = "incorrectFP"> Incorrect! </h3>
+                <h3 id = "correctFP"> Correct! </h3>
+                <form id = "answer"> 
+                    <input autocomplete="off" autofocus id="ans" placeholder="Type your answer here" type = "text">
+                    <input type = "submit" value = "Check Answer"> 
+                </form>
+                <script> 
+                   document.getElementById("answer").onsubmit = function() {quest()};
+                   function quest(){
+                        event.preventDefault();
+                        let response = ans.value;
+                        if (response != 1994) {
+                            ans.style.backgroundColor = "#ff4d4d";
+                            incorrectFP.style.display="inline-block";
+                        }
+                        else {
+                            ans.style.backgroundColor = "#70db70"
+                            correctFP.style.display="inline-block";
+                        }
+                   }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
